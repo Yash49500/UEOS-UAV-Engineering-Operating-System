@@ -1,259 +1,320 @@
 # Engineering Philosophy
-Version: 0.1
+
+| Field | Value |
+|--------|-------|
+| Document ID | UEOS-FND-001 |
+| Version | 0.1 |
+| Status | Active |
+| Owner | Chief Systems Engineer |
+| Classification | Foundation |
+| Last Updated | 2026-07-27 |
 
 ---
 
 # Purpose
 
-This document defines the engineering philosophy that governs every decision made within the UAV Engineering Operating System (UEOS).
+The Engineering Philosophy defines the fundamental principles that govern every engineering activity performed within the UAV Engineering Operating System (UEOS).
 
-It serves as the highest-level engineering reference and establishes the principles, values, and decision-making framework that every engineering role within UEOS must follow.
+This document establishes the engineering mindset, decision-making process, and quality standards that every engineer, workflow, template, checklist, and project must follow.
 
-Every engineer, workflow, template, checklist, and review process derives its behaviour from this philosophy.
+Rather than prescribing specific technologies, this philosophy defines **how engineering decisions are made**, ensuring that all UAV systems developed using UEOS are systematic, traceable, verifiable, and maintainable.
+
+---
+
+# Vision
+
+To establish a structured engineering framework that enables the design, development, validation, and deployment of reliable autonomous UAV systems using disciplined systems engineering principles.
 
 ---
 
 # Mission
 
-Build reliable, maintainable, autonomous UAV systems using disciplined engineering rather than trial-and-error development.
+Develop autonomous UAV systems through structured engineering processes instead of trial-and-error development.
 
-UEOS promotes systematic engineering where every design choice is intentional, justified, testable, and traceable.
+Every engineering decision should contribute directly to mission success while maintaining safety, reliability, maintainability, and technical excellence.
 
 ---
 
-# Engineering Principles
+# Engineering Objectives
 
-## Principle 1 — Mission First
+UEOS aims to:
 
-Technology is never the objective.
+- Standardise UAV engineering practices.
+- Improve engineering quality.
+- Reduce design errors.
+- Improve documentation quality.
+- Enable reusable engineering knowledge.
+- Encourage evidence-based decision making.
+- Improve collaboration between engineering disciplines.
+- Create repeatable engineering workflows.
+
+---
+
+# Core Engineering Principles
+
+## Principle 1 — Mission Before Technology
 
 The mission defines the system.
 
-Every hardware and software decision must directly support mission success.
+Technology is selected only after the mission has been clearly understood.
 
-Example:
+Incorrect engineering approach:
 
-Mission:
+> "Let's build a drone using Raspberry Pi."
 
-Autonomous balloon interception.
+Correct engineering approach:
 
-Not:
+> "The mission requires autonomous balloon interception under GPS-denied conditions."
 
-Use Raspberry Pi.
-
-Not:
-
-Use YOLO.
-
-Mission first.
-
-Technology second.
+The mission determines the technology—not the other way around.
 
 ---
 
-## Principle 2 — Requirements Before Design
+## Principle 2 — Requirements Drive Design
 
-Never begin with hardware.
+Engineering begins with requirements.
 
-Never begin with software.
+Hardware, software, algorithms, sensors, and communication systems are selected only after functional and non-functional requirements have been established.
 
-Always begin with requirements.
+Requirements should be:
 
-Wrong
-
-"I want to use PX4."
-
-Correct
-
-"I need autonomous waypoint navigation with onboard object tracking."
-
-Requirements determine architecture.
-
-Architecture determines implementation.
+- Clear
+- Measurable
+- Testable
+- Traceable
+- Achievable
 
 ---
 
-## Principle 3 — Architecture Before Components
+## Principle 3 — Architecture Before Implementation
 
-Do not choose components independently.
+No component should be selected independently.
 
-Design the complete system first.
+The complete system architecture shall be designed before implementation begins.
 
-Only after the architecture exists should components be selected.
+Architecture defines:
 
-Architecture defines
+- Flight Controller
+- Companion Computer
+- Sensors
+- Communication Systems
+- Power System
+- Software Stack
+- AI Pipeline
+- Safety Mechanisms
 
-• Sensors
-
-• Flight Controller
-
-• Companion Computer
-
-• Communication
-
-• Software Stack
-
-• AI Pipeline
-
-• Power System
+Component selection follows architecture.
 
 ---
 
-## Principle 4 — Trade-offs Must Be Explicit
+## Principle 4 — Engineering Decisions Require Justification
 
-Every engineering decision has advantages and disadvantages.
+Every engineering decision shall be supported by technical reasoning.
 
-Whenever a recommendation is made, document:
+Each decision should document:
 
-Why it was selected.
+- Problem Statement
+- Alternatives Considered
+- Evaluation Criteria
+- Selected Solution
+- Trade-offs
+- Risks
+- Expected Benefits
 
-Alternatives considered.
-
-Expected benefits.
-
-Known limitations.
-
-Associated risks.
+Engineering decisions shall never rely solely on assumptions.
 
 ---
 
-## Principle 5 — Engineering Decisions Must Be Traceable
+## Principle 5 — Systems Thinking
 
-Every subsystem shall be traceable back to one or more mission requirements.
+A UAV is a system composed of interacting subsystems.
 
-Nothing exists without purpose.
+Changes to one subsystem affect others.
+
+Subsystems include:
+
+- Airframe
+- Propulsion
+- Flight Control
+- Navigation
+- Power Distribution
+- Communication
+- Perception
+- AI
+- Ground Control
+- Mission Software
+
+Engineering decisions shall always consider system-wide impacts.
 
 ---
 
 ## Principle 6 — Verification is Mandatory
 
-Every requirement must have an associated verification method.
+Every requirement shall have an associated verification method.
 
-Possible verification methods include:
+Verification methods include:
 
+- Analysis
+- Inspection
 - Simulation
-- Unit Testing
 - Bench Testing
-- Flight Testing
-- Hardware Validation
+- Hardware Testing
 - Integration Testing
+- Flight Testing
 
-A requirement that cannot be verified is incomplete.
-
----
-
-## Principle 7 — Simulate Before Flight
-
-All autonomous functionality should be validated in simulation before field deployment.
-
-Simulation reduces risk, cost, and development time.
+Requirements that cannot be verified are considered incomplete.
 
 ---
 
-## Principle 8 — Flight Testing is a Controlled Experiment
+## Principle 7 — Simulation Before Flight
 
-Every flight test must have:
+Simulation shall be the first validation environment for autonomous capabilities.
 
-Objective
+Simulation reduces:
 
-Success criteria
+- Development cost
+- Hardware risk
+- Flight risk
+- Development time
 
-Risk assessment
-
-Test procedure
-
-Expected outcome
-
-Observed outcome
-
-Lessons learned
-
-No experimental flights without documentation.
+Real-world flight testing shall follow successful simulation validation.
 
 ---
 
-## Principle 9 — Fail Safely
+## Principle 8 — Flight Testing is an Engineering Experiment
 
-Safety takes priority over mission completion.
+Every flight shall be planned.
 
-Every subsystem must define its behaviour under failure conditions.
+Each flight test requires:
 
-Examples:
+- Test Objective
+- Test Procedure
+- Required Equipment
+- Safety Assessment
+- Success Criteria
+- Expected Results
+- Actual Results
+- Lessons Learned
 
-GPS loss
-
-Camera failure
-
-Battery failure
-
-Communication loss
-
-Companion computer crash
-
-Sensor malfunction
+Unplanned flights are prohibited within UEOS engineering workflows.
 
 ---
 
-## Principle 10 — Continuous Improvement
+## Principle 9 — Safety is Non-Negotiable
 
-Every completed project contributes knowledge back into UEOS.
+Mission success shall never take precedence over safety.
 
-Lessons learned become reusable engineering assets.
+Every subsystem shall define failure behaviour.
+
+Examples include:
+
+- GPS Failure
+- Camera Failure
+- IMU Failure
+- Battery Failure
+- Communication Loss
+- Companion Computer Crash
+- Flight Controller Failure
+
+Safe recovery mechanisms shall be considered during system design.
+
+---
+
+## Principle 10 — Continuous Engineering Improvement
+
+Every completed project contributes new knowledge to UEOS.
+
+Knowledge shall be captured through:
+
+- Lessons Learned
+- Failure Reports
+- Design Improvements
+- Benchmark Results
+- Flight Logs
+- Performance Analysis
+
+Engineering capability grows through accumulated experience.
 
 ---
 
 # Engineering Decision Framework
 
-Every engineering decision shall answer the following questions.
+Every engineering recommendation should answer the following questions.
 
 1. What problem is being solved?
 
-2. Which requirement does it satisfy?
+2. Which mission requirement does it satisfy?
 
-3. What alternatives were evaluated?
+3. Which alternatives were considered?
 
-4. Why was this option selected?
+4. Why was this solution selected?
 
-5. What are the risks?
+5. What are the associated risks?
 
-6. How will success be verified?
+6. How will the solution be verified?
 
-If these questions cannot be answered, the decision is incomplete.
+7. How does this decision affect other subsystems?
+
+If these questions cannot be answered, the engineering decision is incomplete.
 
 ---
 
-# Definition of Engineering Success
+# Definition of Engineering Quality
+
+Within UEOS, engineering quality is measured by:
+
+- Mission Success
+- Requirement Satisfaction
+- System Reliability
+- Safety
+- Testability
+- Maintainability
+- Documentation Quality
+- Reproducibility
+- Scalability
+
+---
+
+# Definition of Success
 
 A successful UAV project is one that:
 
-Meets mission objectives.
-
-Satisfies requirements.
-
-Operates safely.
-
-Is testable.
-
-Is maintainable.
-
-Is documented.
-
-Can be reproduced.
-
-Can be improved.
+- Meets mission objectives.
+- Satisfies stakeholder requirements.
+- Operates safely.
+- Can be verified.
+- Can be reproduced.
+- Is maintainable.
+- Is properly documented.
+- Supports future improvements.
 
 ---
 
 # Philosophy Summary
 
-UEOS does not optimise for speed of development.
+UEOS promotes engineering discipline over engineering speed.
 
-UEOS optimises for engineering quality.
+A slower but well-engineered system is preferred over a rapidly developed system that cannot be trusted, maintained, or verified.
 
-A slower but well-engineered system is preferable to a rapidly developed system that cannot be trusted.
-
-Engineering excellence is achieved through disciplined processes, structured thinking, verification, and continuous learning.
+Engineering excellence is achieved through structured thinking, disciplined execution, continuous verification, and lifelong learning.
 
 ---
 
-End of Document
+# References
+
+Future references will include:
+
+- NASA Systems Engineering Handbook
+- INCOSE Systems Engineering Handbook
+- PX4 Documentation
+- ArduPilot Documentation
+- MAVLink Specification
+- ROS 2 Documentation
+
+---
+
+# Revision History
+
+| Version | Date | Description |
+|----------|------------|-------------------------|
+| 0.1 | 2026-07-27 | Initial Release |
