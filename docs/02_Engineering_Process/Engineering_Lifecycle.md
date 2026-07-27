@@ -1,13 +1,11 @@
-# Engineering Lifecycle
+# UEOS Project Lifecycle
 
 | Field | Value |
 |--------|-------|
-| Document ID | UEOS-PRC-001 |
+| Document ID | UEOS-PROC-001 |
 | Version | 0.1 |
 | Status | Active |
 | Owner | Chief Systems Engineer |
-| Reviewer | Systems Architecture Team |
-| Approval Authority | UEOS Core Team |
 | Classification | Engineering Process |
 | Last Updated | 2026-07-27 |
 
@@ -15,32 +13,31 @@
 
 # 1. Purpose
 
-The Engineering Lifecycle defines the standard process used by UEOS to develop autonomous UAV systems.
+This document defines the standard engineering lifecycle followed by all projects developed within the UAV Engineering Operating System (UEOS).
 
-Rather than treating development as a collection of independent tasks, UEOS models engineering as a structured lifecycle where each phase produces validated outputs that become inputs to the next phase.
+The lifecycle establishes a repeatable, traceable, and systematic engineering process from initial mission definition through deployment and long-term maintenance.
 
-The objective is to ensure every UAV system is developed systematically, is traceable, and can be verified before deployment.
-
----
-
-# 2. Scope
-
-This lifecycle applies to:
-
-- Autonomous UAVs
-- Companion Computer Development
-- AI Systems
-- Flight Control Systems
-- Embedded Systems
-- Computer Vision Systems
-- Ground Control Software
-- Research Projects
-- Competition Projects
-- Commercial UAV Products
+Every UEOS project shall follow this lifecycle unless formally approved to use a project-specific variation.
 
 ---
 
-# 3. Engineering Lifecycle
+# 2. Engineering Philosophy
+
+UEOS follows a systems engineering approach where each engineering activity produces well-defined inputs, outputs, reviews, and configuration-controlled deliverables.
+
+Every lifecycle phase shall:
+
+- Produce measurable outputs.
+- Have defined entry criteria.
+- Have defined exit criteria.
+- Be reviewed before progression.
+- Maintain complete traceability.
+
+Engineering progresses through approved baselines rather than informal milestones.
+
+---
+
+# 3. Lifecycle Overview
 
 ```
 Mission Definition
@@ -73,380 +70,404 @@ Validation
 Deployment
         │
         ▼
-Maintenance & Continuous Improvement
+Maintenance
 ```
 
-Each phase shall be completed before progressing to the next.
-
 ---
 
-# 4. Lifecycle Phases
+# 4. Phase 1 — Mission Definition
 
----
+## Objective
 
-## Phase 1 — Mission Definition
-
-### Objective
-
-Define what problem the UAV system must solve.
+Clearly define the operational problem before beginning technical work.
 
 ### Activities
 
-- Understand stakeholder needs
-- Define mission objectives
-- Identify operational environment
-- Define mission success criteria
+- Identify stakeholders.
+- Define operational objectives.
+- Define mission constraints.
+- Define success criteria.
+- Identify assumptions.
+- Define high-level risks.
 
-### Deliverables
+### Primary Outputs
 
 - Mission Definition Document
-- Stakeholder Analysis
-- Operational Constraints
+- Operational Concept (CONOPS)
+- Initial Risk Register
+
+### Exit Criteria
+
+- Mission approved.
+- Stakeholders identified.
+- Objectives accepted.
 
 ---
 
-## Phase 2 — Requirements Engineering
+# 5. Phase 2 — Requirements Engineering
 
-### Objective
+## Objective
 
-Translate mission objectives into measurable engineering requirements.
+Transform mission objectives into measurable engineering requirements.
 
 ### Activities
 
-- Functional Requirements
-- Non-Functional Requirements
-- Performance Requirements
-- Safety Requirements
-- Environmental Requirements
+- Capture stakeholder requirements.
+- Define system requirements.
+- Allocate subsystem requirements.
+- Prioritise requirements.
+- Establish traceability.
 
-### Deliverables
+### Primary Outputs
 
+- Stakeholder Requirements Specification
 - System Requirements Specification (SRS)
-- Requirement Traceability Matrix
+- Requirements Traceability Matrix (RTM)
+
+### Exit Criteria
+
+- Requirements approved.
+- Traceability established.
+- Requirement review completed.
 
 ---
 
-## Phase 3 — Research & Benchmarking
+# 6. Phase 3 — Research & Benchmarking
 
-### Objective
+## Objective
 
-Understand existing solutions before designing a new system.
+Reduce technical uncertainty before design begins.
 
 ### Activities
 
-- Literature Review
-- Technology Survey
-- Component Evaluation
-- Competitor Benchmarking
-- Standards Review
+- Literature review.
+- Benchmark existing systems.
+- Evaluate technologies.
+- Assess feasibility.
+- Identify engineering risks.
 
-### Deliverables
+### Primary Outputs
 
 - Literature Review
 - Benchmark Report
-- Technology Selection Report
+- Technology Assessment
+- Research Summary
+
+### Exit Criteria
+
+- Preferred technologies selected.
+- Major uncertainties documented.
 
 ---
 
-## Phase 4 — System Architecture
+# 7. Phase 4 — System Architecture
 
-### Objective
+## Objective
 
-Design the overall UAV system before selecting components.
+Define the complete system structure.
 
 ### Activities
 
-- Functional Decomposition
-- Hardware Architecture
-- Software Architecture
-- AI Architecture
-- Communication Architecture
-- Safety Architecture
+- Functional decomposition.
+- Subsystem allocation.
+- Interface definition.
+- Data flow design.
+- Safety allocation.
 
-### Deliverables
+### Primary Outputs
 
-- System Architecture Document
-- Block Diagrams
-- Interface Definitions
+- System Architecture Document (SAD)
+- Interface Control Documents (ICDs)
+- Architecture Diagrams
+
+### Exit Criteria
+
+- Architecture approved.
+- Interfaces frozen for implementation.
 
 ---
 
-## Phase 5 — Detailed Design
+# 8. Phase 5 — Detailed Design
 
-### Objective
+## Objective
 
-Design each subsystem in sufficient detail for implementation.
+Produce implementation-ready subsystem designs.
 
 ### Activities
 
-- PCB Design
-- Mechanical Design
-- Software Design
-- Algorithm Design
-- Database Design
-- Interface Design
+- Hardware design.
+- Embedded software design.
+- Flight control design.
+- AI design.
+- Vision design.
+- Communication design.
+- Simulation design.
 
-### Deliverables
+### Primary Outputs
 
 - Design Documents
-- CAD Models
 - Schematics
-- Software Design Documents
+- Software Specifications
+- Simulation Models
+
+### Exit Criteria
+
+- Design Review Board approval.
+- Design baseline established.
 
 ---
 
-## Phase 6 — Implementation
+# 9. Phase 6 — Implementation
 
-### Objective
+## Objective
 
-Build each subsystem according to the approved design.
+Develop hardware and software according to approved designs.
 
 ### Activities
 
-- Firmware Development
-- Software Development
-- PCB Fabrication
-- Mechanical Assembly
-- AI Model Development
+- PCB development.
+- Firmware development.
+- Software implementation.
+- AI training.
+- Vision algorithm implementation.
+- Unit testing.
 
-### Deliverables
+### Primary Outputs
 
-- Source Code
-- Firmware
-- CAD Files
-- AI Models
+- Source code
+- Hardware prototypes
+- Unit test reports
+- Build artefacts
+
+### Exit Criteria
+
+- Implementation complete.
+- Unit testing passed.
 
 ---
 
-## Phase 7 — Integration
+# 10. Phase 7 — Integration
 
-### Objective
+## Objective
 
-Combine individual subsystems into a complete UAV system.
+Assemble subsystems into a functioning UAV system.
 
 ### Activities
 
-- Hardware Integration
-- Software Integration
-- Sensor Integration
-- Flight Controller Configuration
-- Communication Testing
+- Hardware integration.
+- Software integration.
+- Interface verification.
+- System configuration.
+- Initial functional testing.
 
-### Deliverables
+### Primary Outputs
 
-- Integrated UAV System
+- Integrated System
 - Integration Report
+- Configuration Baseline
+
+### Exit Criteria
+
+- Integration completed.
+- Critical interfaces verified.
 
 ---
 
-## Phase 8 — Verification
+# 11. Phase 8 — Verification
 
-### Objective
+## Objective
 
-Verify that the implemented system satisfies engineering requirements.
+Verify compliance with engineering requirements.
 
 ### Activities
 
-- Unit Testing
-- Bench Testing
-- Hardware Testing
-- Software Testing
-- Simulation Testing
+- Bench testing.
+- Integration testing.
+- Functional testing.
+- Requirements verification.
+- Evidence collection.
 
-### Deliverables
+### Primary Outputs
 
 - Verification Report
-- Test Results
-- Issue Log
+- Requirements Verification Matrix (RVM)
+- Test Evidence Package
+
+### Exit Criteria
+
+- All planned verification completed.
+- Objective evidence collected.
 
 ---
 
-## Phase 9 — Validation
+# 12. Phase 9 — Validation
 
-### Objective
+## Objective
 
-Validate that the system satisfies the intended mission.
+Demonstrate operational suitability.
 
 ### Activities
 
-- Flight Testing
-- Field Trials
-- User Evaluation
-- Performance Evaluation
+- Ground testing.
+- Flight testing.
+- Mission evaluation.
+- Operator assessment.
+- Safety validation.
 
-### Deliverables
+### Primary Outputs
 
-- Flight Test Report
 - Validation Report
-- Mission Assessment
+- Flight Test Report
+- Operational Assessment
+
+### Exit Criteria
+
+- Mission objectives achieved.
+- Operational acceptance confirmed.
 
 ---
 
-## Phase 10 — Deployment
+# 13. Phase 10 — Deployment
 
-### Objective
+## Objective
 
-Release the UAV system for operational use.
+Release the approved system for operational use.
 
 ### Activities
 
-- Documentation
-- Operator Training
-- Final Review
-- Release Approval
+- Publish documentation.
+- Release software.
+- Deliver hardware.
+- Train operators.
+- Final acceptance.
 
-### Deliverables
+### Primary Outputs
 
 - Release Package
 - User Documentation
-- Maintenance Guide
+- Operations Manual
+
+### Exit Criteria
+
+- Release approved.
+- Documentation published.
+- Operators trained.
 
 ---
 
-## Phase 11 — Maintenance & Continuous Improvement
+# 14. Phase 11 — Maintenance
 
-### Objective
+## Objective
 
-Improve the system throughout its operational lifetime.
+Maintain system performance after deployment.
 
 ### Activities
 
-- Bug Fixes
-- Performance Improvements
-- Feature Enhancements
-- Lessons Learned
-- Version Updates
+- Bug fixes.
+- Feature enhancements.
+- Firmware updates.
+- Documentation updates.
+- Maintenance planning.
 
-### Deliverables
+### Primary Outputs
 
-- Updated Documentation
-- New Releases
-- Engineering Change Log
+- Updated Releases
+- Maintenance Records
+- Change Log
 
----
+### Exit Criteria
 
-# 5. Lifecycle Gates
-
-Every phase ends with an engineering review.
-
-A lifecycle gate ensures that outputs are complete before progressing.
-
-| Gate | Review |
-|-------|--------|
-| G1 | Mission Approval |
-| G2 | Requirements Review |
-| G3 | Architecture Review |
-| G4 | Design Review |
-| G5 | Implementation Review |
-| G6 | Integration Review |
-| G7 | Verification Review |
-| G8 | Validation Review |
-| G9 | Deployment Approval |
-
-Progression to the next phase requires successful completion of the current gate.
+- Changes verified.
+- Documentation updated.
+- Baseline revised.
 
 ---
 
-# 6. Traceability
+# 15. Lifecycle Reviews
 
-Every engineering artefact shall be traceable.
-
-Example:
-
-```
-Mission
-
-↓
-
-Requirement
-
-↓
-
-Architecture
-
-↓
-
-Subsystem
-
-↓
-
-Implementation
-
-↓
-
-Test Case
-
-↓
-
-Verification Result
-
-↓
-
-Flight Test
-
-↓
-
-Deployment
-```
-
-Traceability ensures every engineering decision can be justified and verified.
+| Review | Purpose | Owner |
+|---------|---------|-------|
+| Mission Review (MR) | Mission approval | Chief Systems Engineer |
+| System Requirements Review (SRR) | Approve requirements | Requirements Engineer |
+| Architecture Review (AR) | Approve architecture | Systems Architect |
+| Preliminary Design Review (PDR) | Approve high-level design | Design Review Board |
+| Critical Design Review (CDR) | Approve detailed design | Design Review Board |
+| Integration Readiness Review (IRR) | Begin integration | Integration Team |
+| Test Readiness Review (TRR) | Begin verification | Test Engineer |
+| Flight Readiness Review (FRR) | Begin flight testing | Safety Engineer |
+| Operational Readiness Review (ORR) | Begin deployment | Chief Systems Engineer |
 
 ---
 
-# 7. Roles and Responsibilities
+# 16. Engineering Baselines
 
-| Role | Primary Responsibility |
-|------|-------------------------|
-| Chief Systems Engineer | Oversees the complete lifecycle |
-| Requirements Engineer | Defines engineering requirements |
-| Research Engineer | Performs literature review and benchmarking |
-| Systems Architect | Designs the system architecture |
-| Hardware Engineer | Develops electronic systems |
-| Embedded Engineer | Develops firmware |
-| AI Engineer | Develops perception and decision systems |
-| Simulation Engineer | Builds simulation environments |
-| Test Engineer | Plans and executes verification |
-| Safety Engineer | Ensures operational safety |
-| Technical Writer | Maintains engineering documentation |
+Each review establishes a controlled engineering baseline.
 
----
+| Baseline | Established At |
+|----------|----------------|
+| Mission Baseline | MR |
+| Requirements Baseline | SRR |
+| Architecture Baseline | AR |
+| Design Baseline | CDR |
+| Build Baseline | Implementation Complete |
+| Integration Baseline | IRR |
+| Verification Baseline | TRR |
+| Operational Baseline | ORR |
 
-# 8. Best Practices
-
-- Complete one lifecycle phase before beginning the next.
-- Document every engineering decision.
-- Review all deliverables before approval.
-- Maintain requirement traceability.
-- Test early and test often.
-- Record lessons learned after every milestone.
+Changes to an approved baseline shall follow the Change Management Process.
 
 ---
 
-# 9. Related UEOS Documents
+# 17. Roles Across the Lifecycle
+
+| Phase | Lead Role |
+|---------|-----------|
+| Mission Definition | Chief Systems Engineer |
+| Requirements Engineering | Requirements Engineer |
+| Research & Benchmarking | Research Engineer |
+| System Architecture | Systems Architect |
+| Detailed Design | Discipline Engineers |
+| Implementation | Discipline Engineers |
+| Integration | Chief Systems Engineer |
+| Verification | Test Engineer |
+| Validation | Test Engineer |
+| Deployment | Technical Writer |
+| Maintenance | Chief Systems Engineer |
+
+---
+
+# 18. Success Criteria
+
+A UEOS project is complete when:
+
+- Mission objectives are achieved.
+- Requirements are fully verified.
+- Operational validation is successful.
+- Safety objectives are met.
+- Documentation is complete.
+- Engineering baselines are established.
+- Release package is approved.
+
+---
+
+# 19. Related UEOS Documents
 
 - Engineering Philosophy
+- Engineering Lifecycle
 - Repository Standards
-- UAV Development Workflow
+- All Engineering Role Documents
+- Requirements Management Process
 - Design Review Process
-- Verification and Validation
+- Configuration Management Process
+- Change Management Process
 
 ---
 
-# 10. References
+# 20. Revision History
 
-- NASA Systems Engineering Handbook
-- INCOSE Systems Engineering Handbook
-- ISO/IEC/IEEE 15288 – System Life Cycle Processes
-- PX4 Documentation
-- ArduPilot Documentation
-
----
-
-# 11. Revision History
-
-| Version | Date | Author | Description |
-|----------|------------|--------|----------------|
-| 0.1 | 2026-07-27 | UEOS | Initial Release |
+| Version | Date | Description |
+|----------|------|-------------|
+| 0.1 | 2026-07-27 | Initial Release |
 
 ---
 
